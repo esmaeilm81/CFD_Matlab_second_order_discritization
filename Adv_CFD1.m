@@ -16,13 +16,13 @@ for i=1:length(h)
     B=zeros(N(i),1);
     for j=1:N(i)
         x(j)=(j-1)*h(i);
-        S(j)=x(j)*(x(j)-1);
+        S(j)=x(j)*(1-x(j));
     end
     S=S';
     A(1,1)=1; A(N(i),N(i))=1;
     B(1)=2; B(N(i))=5;
     for j=2:N(i)-1
-        B(j)=-S(j)*h(i)^2;
+        B(j)=S(j)*h(i)^2;
     end
     k=2;
     for j=2:N(i)-1
